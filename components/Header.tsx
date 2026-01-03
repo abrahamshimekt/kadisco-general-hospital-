@@ -23,6 +23,7 @@ export default function Header() {
     { href: '#services', label: language === 'en' ? 'Services' : 'አገልግሎቶች' },
     { href: '#maternity', label: language === 'en' ? 'Maternity' : 'ወሊድ' },
     { href: '#facilities', label: language === 'en' ? 'Facilities' : 'መገልገያዎች' },
+    { href: '#gallery', label: language === 'en' ? 'Gallery' : 'ፎቶዎች' },
     { href: '#contact', label: language === 'en' ? 'Contact' : 'አድራሻ' },
   ]
 

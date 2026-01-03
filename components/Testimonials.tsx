@@ -5,28 +5,46 @@ import { Star, Quote } from 'lucide-react'
 
 const testimonials = [
   {
-    quote: "Professional, kind, and supportive staff. The doctors took time to explain everything and made me feel at ease throughout my treatment.",
-    author: "Tigist M.",
+    quote: "Our family has had few surgical experiences over the past few years at Kadisco Hospital, and each time we received excellent care. The doctors, nurses, and staff were professional, kind, and supportive. We are very grateful and highly recommend Kadisco Hospital.",
+    author: "Mahder Asrat",
     role: "Patient",
     rating: 5,
+    time: "4 months ago",
   },
   {
-    quote: "Excellent maternity and surgical care. I had my baby here and the experience was wonderful. The midwives were so supportive and caring.",
-    author: "Hana B.",
+    quote: "Gave birth in this hospital and my follow up was with Sister Regina. She was amazing throughout my pregnancy and delivery, she made the pain bearable by being there every minute. Would never go nowhere else to give birth. Highly recommend!",
+    author: "Enas Mohammad",
     role: "New Mother",
     rating: 5,
+    time: "4 years ago",
   },
   {
-    quote: "Clean facilities and reliable healthcare. I've been coming here for years and have always received excellent care from the entire team.",
-    author: "Dawit T.",
-    role: "Regular Patient",
-    rating: 4,
-  },
-  {
-    quote: "The emergency department was quick and efficient. They handled my situation with professionalism and genuine concern for my wellbeing.",
-    author: "Sara A.",
-    role: "Emergency Patient",
+    quote: "My wife has been there for our 3 boys birth and the prenatal yoga and maternal training by Sr. Mariam was really amazing. Dr. Samia is the best gynecologist - she recommends normal delivery. I am very happy with all Kadisco services.",
+    author: "Michael Mekonnen",
+    role: "Father of 3",
     rating: 5,
+    time: "1 year ago",
+  },
+  {
+    quote: "I had a very positive experience at KADISCO General Hospital. The care I received was top-notch, and the entire team was both kind and efficient. The facilities were modern and clean. I would definitely recommend KADISCO for anyone seeking reliable medical care.",
+    author: "Gorfie Demssie",
+    role: "Patient",
+    rating: 5,
+    time: "1 year ago",
+  },
+  {
+    quote: "Best hospital ever! In fact I was born at Kadisco and the staffs are really nice.",
+    author: "Leoul Fasil",
+    role: "Lifelong Patient",
+    rating: 5,
+    time: "5 months ago",
+  },
+  {
+    quote: "The staff was friendly, and the facilities were clean. The medical team provided excellent care and made sure I was comfortable throughout my visit. Highly recommend KADISCO General Hospital for quality healthcare.",
+    author: "Imran Khalifa",
+    role: "Patient",
+    rating: 5,
+    time: "1 year ago",
   },
 ]
 
@@ -75,7 +93,7 @@ export default function Testimonials() {
         </motion.div>
 
         {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -84,39 +102,37 @@ export default function Testimonials() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="testimonial-card h-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all">
-                {/* Quote Icon - Override default */}
-                <div className="mb-6">
-                  <Quote className="w-10 h-10 text-primary/30" />
-                </div>
-
-                {/* Rating */}
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`w-4 h-4 ${
-                        i < testimonial.rating
-                          ? 'text-primary fill-primary'
-                          : 'text-white/20'
-                      }`}
-                    />
-                  ))}
+              <div className="testimonial-card h-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all">
+                {/* Header with Rating and Time */}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`w-4 h-4 ${
+                          i < testimonial.rating
+                            ? 'text-primary fill-primary'
+                            : 'text-white/20'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <span className="text-xs text-white/40">{testimonial.time}</span>
                 </div>
 
                 {/* Quote */}
-                <blockquote className="text-white/80 text-lg leading-relaxed mb-6">
+                <blockquote className="text-white text-base leading-relaxed mb-6">
                   &ldquo;{testimonial.quote}&rdquo;
                 </blockquote>
 
                 {/* Author */}
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-dark-900 font-bold text-lg">
+                <div className="flex items-center gap-3 mt-auto">
+                  <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-dark-900 font-bold text-sm">
                     {testimonial.author.charAt(0)}
                   </div>
                   <div>
-                    <div className="font-semibold text-white">{testimonial.author}</div>
-                    <div className="text-sm text-white/60">{testimonial.role}</div>
+                    <div className="font-semibold text-white text-sm">{testimonial.author}</div>
+                    <div className="text-xs text-white/60">{testimonial.role}</div>
                   </div>
                 </div>
               </div>
